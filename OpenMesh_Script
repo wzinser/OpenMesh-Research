@@ -1,0 +1,27 @@
+#!/bin/bash
+#This is a linux shell script to download, extract, and compile OpenMesh as uninstall
+
+
+# Check to see if file exists, if so, prompt for uninstall
+if [ -d ~/Desktop/OpenMesh-8.0 ]
+then
+while true; do
+		read -p "Do you want to uninstall OpenMesh? (Y/N): " yn	
+		case $yn in
+			[Yy]* ) rm -r ~/Desktop/OpenMesh-8.0; exit;;
+			[Nn]* ) exit;;
+			* ) echo "Please answer (Y/N).";;
+		esac
+	done
+fi
+
+wget -O ~/Desktop/OpenMesh-8.0.tar.gz https://www.graphics.rwth-aachen.de:9000/OpenMesh/OpenMesh/-/jobs/66524/artifacts/raw/OpenMesh-8.0.tar.gz
+
+cd ~/Desktop
+tar xvzf OpenMesh-8.0.tar.gz
+rm OpenMesh-8.0.tar.gz
+cd OpenMesh-8.0
+mkdir build
+cd build
+cmake ..
+make
