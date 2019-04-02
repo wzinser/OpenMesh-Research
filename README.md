@@ -1,4 +1,4 @@
-# Modeling Ordinary Differential Equations using OpenMesh
+# Modeling with OpenMesh
 
 This program provides an example of how to create a mesh and use it to visualize data. A simple first order ordinary differential equation is solved using the ODEint C++ library and displayed on a user defined mesh created from OpenMesh C++ libary. The purpose of this is to serve as a starting point to use OpenMesh as a data structure for more complex projects and further research.   
 
@@ -22,73 +22,59 @@ sudo apt-get install libboost-all-dev
 ```
 ### Installing
 
-A step by step series of examples that tell you how to get a development env running
-
-Say what the step will be
+Run OpenMesh download script to download all libraries and build the most current version. Note: running the script after installation will prompt to uninstall.
 
 ```
-Give the example
+./OpenMesh_Download
+```
+Download ODEint libary
+
+```
+$ git clone git://github.com/headmyshoulder/odeint-v2
 ```
 
-And repeat
+## Examples
+Examples
 
-```
-until finished
-```
+### Building a Mesh
 
-End with an example of getting some data out of the system or using it for a little demo
-
-## Running the tests
-
-Explain how to run the automated tests for this system
-
-### Break down into end to end tests
-
-Explain what these tests test and why
+mesh
 
 ```
 Give an example
 ```
 
-### And coding style tests
+### Iterating over mesh
 
-Explain what these tests test and why
-
+face/vertex iterator
 ```
 Give an example
 ```
 
-## Deployment
+### Add data to face/vertices
 
-Add additional notes about how to deploy this on a live system
+add data
+```
+Give an example
+```
+### Changing properties
 
-## Built With
+change color
+```
+Give an example
+```
 
-* [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
-* [Maven](https://maven.apache.org/) - Dependency Management
-* [ROME](https://rometools.github.io/rome/) - Used to generate RSS Feeds
+### ODE Solver
 
-## Contributing
-
-Please read [CONTRIBUTING.md](https://gist.github.com/PurpleBooth/b24679402957c63ec426) for details on our code of conduct, and the process for submitting pull requests to us.
-
-## Versioning
-
-We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags). 
-
-## Authors
-
-* **Billie Thompson** - *Initial work* - [PurpleBooth](https://github.com/PurpleBooth)
-
-See also the list of [contributors](https://github.com/your/project/contributors) who participated in this project.
-
+ode solver
+```
+Give an example
+```
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
 
-## Acknowledgments
+## Resources
 
-* Hat tip to anyone whose code was used
-* Inspiration
-* etc
-
+https://www.openmesh.org/
+http://headmyshoulder.github.io/odeint-v2/index.html
