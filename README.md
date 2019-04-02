@@ -1,19 +1,25 @@
-# Project Title
+# Modeling Ordinary Differential Equations using OpenMesh
 
-One Paragraph of project description goes here
+This program provides an example of how to create a mesh and use it to visualize data. A simple first order ordinary differential equation is solved using the ODEint C++ library and displayed on a user defined mesh created from OpenMesh C++ libary. The purpose of this is to serve as a starting point to use OpenMesh as a data structure for more complex projects and further research.   
 
 ## Getting Started
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. 
+
+### Operating System
+
+Ubuntu 18.04 LTS (Virtual Machine)
 
 ### Prerequisites
 
-What things you need to install the software and how to install them
-
+- GNU G++ Compiler
 ```
-Give examples
+$ sudo apt install g++
 ```
-
+- C++ Boost Libaries
+```
+sudo apt-get install libboost-all-dev
+```
 ### Installing
 
 A step by step series of examples that tell you how to get a development env running
