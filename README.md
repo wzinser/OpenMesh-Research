@@ -134,7 +134,36 @@ return 0;
 ```
 ![snapshot00](https://user-images.githubusercontent.com/47840209/55462561-ecac6380-55ab-11e9-86d4-930d30bb18ae.png)
 
+A NxN set of vertices can also be created in the following manner
 
+```
+ // Generate a NxN matrix of size N
+  int size = 10;
+  int i = 0;
+  int j = 0;
+  int counter = 0;
+
+  MyMesh::VertexHandle vhandle[100];
+  while (j < size)
+   {
+        if ( i == size)
+         {
+           j++;
+           i = 0;
+         }
+
+        if ( j == size)
+         {
+            break;
+        }
+
+
+    vhandle[counter] = mesh.add_vertex(MyMesh::Point(i,j,0));
+    i++;
+    counter++;
+ 
+   } 
+```
 
 ### Iterating over mesh
 Iteration over faces,vertices,edges,etc. is possible using the following loop.
