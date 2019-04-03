@@ -89,14 +89,9 @@ This example builds a simple square mesh and subdivides it using the LoopT subdi
 #include <OpenMesh/Core/Mesh/TriMesh_ArrayKernelT.hh>
 #include <OpenMesh/Tools/Subdivider/Uniform/LoopT.hh>
 
-
-
 typedef OpenMesh::TriMesh_ArrayKernelT<>  MyMesh;
-
-
 using namespace std;
  
-
 int main()
 {
   MyMesh mesh;
@@ -163,7 +158,36 @@ A NxN set of vertices can also be created in the following manner
     counter++;
  
    } 
+   
+The output in the object file will return a list of points for each vertice 
+/////////////////////////////////////////////////////////////////////////////////
+OFF
+100 0 0
+0 0 0
+1 0 0
+2 0 0
+3 0 0
+4 0 0
+5 0 0
+6 0 0
+7 0 0
+8 0 0
+9 0 0
+0 1 0
+1 1 0
+2 1 0
+3 1 0
+4 1 0
+5 1 0
+6 1 0
+7 1 0
+8 1 0
+9 1 0
+0 2 0
+/////////////////////////////////////////////////////////////////////////////////
 ```
+![snapshotasfdasfasf01](https://user-images.githubusercontent.com/47840209/55464356-cdafd080-55af-11e9-96ab-4cbff47d8d5f.png)
+
 
 ### Iterating over mesh
 Iteration over faces,vertices,edges,etc. is possible using the following loop.
