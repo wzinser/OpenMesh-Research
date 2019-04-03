@@ -33,7 +33,7 @@ Download ODEint libary
 $ git clone git://github.com/headmyshoulder/odeint-v2
 ```
 
-## Running
+### Running
 Once the libraries have been compiled the next step is to create your working directory that will hold your project. 
 
 - Go to OpenMeshRoot/src/OpenMesh/Apps and create a new directory, say "MyOwnProject"
