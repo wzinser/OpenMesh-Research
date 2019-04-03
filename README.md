@@ -186,8 +186,6 @@ OFF
 0 2 0
 /////////////////////////////////////////////////////////////////////////////////
 ```
-![snapshotasfdasfasf01](https://user-images.githubusercontent.com/47840209/55464356-cdafd080-55af-11e9-96ab-4cbff47d8d5f.png)
-
 
 ### Iterating over mesh
 Iteration over faces,vertices,edges,etc. is possible using the following loop.
