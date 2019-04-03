@@ -33,6 +33,50 @@ Download ODEint libary
 $ git clone git://github.com/headmyshoulder/odeint-v2
 ```
 
+## Running
+Once the libraries have been compiled the next step is to create your working directory that will hold your project. 
+
+- Go to OpenMeshRoot/src/OpenMesh/Apps and create a new directory, say "MyOwnProject"
+- Now create a new file called "CMakeLists.txt" containing the following lines:
+```
+include (ACGCommon)
+include_directories (
+  ../../..
+  ${CMAKE_CURRENT_SOURCE_DIR}
+)
+set (targetName MyOwnProject)
+# collect all header and source files
+acg_append_files (headers "*.hh" .)
+acg_append_files (sources "*.cc" .)
+acg_add_executable (${targetName} ${headers} ${sources})
+target_link_libraries (${targetName}
+  OpenMeshCore
+  OpenMeshTools
+)
+
+```
+- Add sourcefiles to new project directory
+- Add the following lines to OpenMeshRoot/src/OpenMesh/Apps/CMakeLists.txt
+
+```
+add_subdirectory (MyOwnProject) 
+```
+
+- Navigate to the new directory and run the following commands
+
+```
+cmake ..
+make
+```
+
+- Your project will now be built in your binaries folder and can be ran using
+
+```
+./MyOwnProject
+```
+
+- The default output wil be a object file containg information on points,faces,etc. This file can also be viewed in many 3rd party mesh editing software such as Meshlab.
+
 ## Examples
 
 ### Building a Mesh
@@ -151,3 +195,4 @@ This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md
 
 https://www.openmesh.org/
 http://headmyshoulder.github.io/odeint-v2/index.html
+http://www.meshlab.net/
