@@ -139,6 +139,9 @@ return 0;
 
 }
 ```
+![snapshot00](https://user-images.githubusercontent.com/47840209/55462561-ecac6380-55ab-11e9-86d4-930d30bb18ae.png)
+
+
 
 ### Iterating over mesh
 Iteration over faces,vertices,edges,etc. is possible using the following loop.
