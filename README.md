@@ -205,6 +205,53 @@ tuple<double, double> write_ODE( const state_type &x , const double t )
 state_type x = { 30 , 30}; // initial conditions
 integrate(ODE, x, 0.0, 100.0, 0.01, write_ODE);
 ```
+
+This can be combined with the mesh to allow for visualization. The following code changes each color of the face based off the value passed to it from the ODE integrator. Multiple output files are made to allow for overlaying to see solution over time.
+
+```
+OpenMesh::IO::Options wopt;
+wopt = OpenMesh::IO::Options::FaceColor;
+mesh.request_face_colors();
+
+for (int count = 0; count<i; count++)
+{
+	int count_prey = prey_count[count];
+	int count_pred = pred_count[count];
+	int total_count = count_prey + count_pred;
+	int z = 0;
+	int y = 0;
+
+	for (MyMesh::FaceIter f_it=mesh.faces_begin();  f_it !=mesh.faces_end(); ++f_it)
+	{ 
+		if ( z < count_prey)
+			{
+		    		mesh.set_color(*f_it,MyMesh::Color(0,0,255));
+			}
+	
+		else if ( (y > count_prey) && (y < total_count) )
+			{
+				mesh.set_color(*f_it,MyMesh::Color(255,0,0));
+		
+			}
+	
+		else
+			{
+		       	        mesh.set_color(*f_it,MyMesh::Color(0,0,0));
+			}
+
+			z++;
+			y++;
+	}
+
+Output = std::to_string(count) + "output.off";
+OpenMesh::IO::write_mesh(mesh, Output, wopt);
+
+}
+
+return 0;
+}
+```
+
 ## License
 
 This project is licensed under the BSD 3-Clause License - see the [LICENSE.md](LICENSE.md) file for details
