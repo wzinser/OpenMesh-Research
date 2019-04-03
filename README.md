@@ -127,14 +127,7 @@ int main()
  Loop( 5 );
  Loop.detach();
 
-
-		
-
-
 OpenMesh::IO::write_mesh(mesh, "output.off");
-
-
-
 return 0;
 
 }
@@ -251,6 +244,7 @@ OpenMesh::IO::write_mesh(mesh, Output, wopt);
 return 0;
 }
 ```
+![ezgif-4-0aa245cb7aaf](https://user-images.githubusercontent.com/47840209/55463427-e919dc00-55ad-11e9-9666-f7aaa34c2f07.gif)
 
 ## License
 
