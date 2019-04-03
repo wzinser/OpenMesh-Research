@@ -159,7 +159,7 @@ A NxN set of vertices can also be created in the following manner
  
    } 
    
-The output in the object file will return a list of points for each vertice 
+The output in the object file will return a list of points for each vertex
 /////////////////////////////////////////////////////////////////////////////////
 OFF
 100 0 0
@@ -184,6 +184,9 @@ OFF
 8 1 0
 9 1 0
 0 2 0
+....
+..
+.
 /////////////////////////////////////////////////////////////////////////////////
 ```
 
