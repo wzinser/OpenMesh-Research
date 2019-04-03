@@ -75,7 +75,7 @@ make
 ./MyOwnProject
 ```
 
-- The default output wil be a object file containg information on points,faces,etc. This file can also be viewed in many 3rd party mesh editing software such as Meshlab.
+- The default output wil be a object file containing information on points,faces,etc. This file can also be viewed in many 3rd party mesh editing software such as Meshlab.
 
 ## Examples
 
