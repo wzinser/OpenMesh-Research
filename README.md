@@ -89,17 +89,24 @@ This example builds a simple square mesh and subdivides it using the LoopT subdi
 #include <OpenMesh/Core/Mesh/TriMesh_ArrayKernelT.hh>
 #include <OpenMesh/Tools/Subdivider/Uniform/LoopT.hh>
 
+
+
+typedef OpenMesh::TriMesh_ArrayKernelT<>  MyMesh;
+
+
+using namespace std;
+ 
+
 int main()
 {
   MyMesh mesh;
-  
-  // Create vertices
+
+  // Create Vertices
   MyMesh::VertexHandle vhandle[3];
   vhandle[0] = mesh.add_vertex(MyMesh::Point( 0, 0 ,  0));
   vhandle[1] = mesh.add_vertex(MyMesh::Point( 1, 0 ,  0));
   vhandle[2] = mesh.add_vertex(MyMesh::Point( 1, 1 ,  0));
   vhandle[3] = mesh.add_vertex(MyMesh::Point( 0, 1 ,  0));
- 
  
   // Create Faces
   std::vector<MyMesh::VertexHandle>  face_vhandles;
@@ -111,8 +118,8 @@ int main()
   mesh.add_face(face_vhandles);
 
 
-  // Initialize Subdivider Tool
-  OpenMesh::Subdivider::Uniform::LoopT<MyMesh> Loop;
+ // Initialize Subdivider Tool
+ OpenMesh::Subdivider::Uniform::LoopT<MyMesh> Loop;
 
 
  // Execute 5 subdivision steps
@@ -120,9 +127,17 @@ int main()
  Loop( 5 );
  Loop.detach();
 
- return 0;
-}
 
+		
+
+
+OpenMesh::IO::write_mesh(mesh, "output.off");
+
+
+
+return 0;
+
+}
 ```
 
 ### Iterating over mesh
