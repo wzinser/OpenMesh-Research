@@ -37,26 +37,60 @@ $ git clone git://github.com/headmyshoulder/odeint-v2
 
 ### Building a Mesh
 
-mesh
+This example builds a simple square mesh and subdivides it using the LoopT subdivision tool
 
 ```
-Give an example
+#include <iostream>
+#include <OpenMesh/Core/IO/MeshIO.hh>
+#include <OpenMesh/Core/Mesh/TriMesh_ArrayKernelT.hh>
+#include <OpenMesh/Tools/Subdivider/Uniform/LoopT.hh>
+
+int main()
+{
+  MyMesh mesh;
+  
+  // Create vertices
+  MyMesh::VertexHandle vhandle[3];
+  vhandle[0] = mesh.add_vertex(MyMesh::Point( 0, 0 ,  0));
+  vhandle[1] = mesh.add_vertex(MyMesh::Point( 1, 0 ,  0));
+  vhandle[2] = mesh.add_vertex(MyMesh::Point( 1, 1 ,  0));
+  vhandle[3] = mesh.add_vertex(MyMesh::Point( 0, 1 ,  0));
+ 
+ 
+  // Create Faces
+  std::vector<MyMesh::VertexHandle>  face_vhandles;
+  face_vhandles.clear();
+  face_vhandles.push_back(vhandle[0]);
+  face_vhandles.push_back(vhandle[1]);
+  face_vhandles.push_back(vhandle[2]);
+  face_vhandles.push_back(vhandle[3]);
+  mesh.add_face(face_vhandles);
+
+
+  // Initialize Subdivider Tool
+  OpenMesh::Subdivider::Uniform::LoopT<MyMesh> Loop;
+
+
+ // Execute 5 subdivision steps
+ Loop.attach(mesh);
+ Loop( 5 );
+ Loop.detach();
+
+ return 0;
+}
+
 ```
 
 ### Iterating over mesh
+Iteration over faces,vertices,edges,etc. is possible using the following loop.
+```
+ for (MyMesh::FaceIter f_it=mesh.faces_begin();  f_it !=mesh.faces_end(); ++f_it)
+ {
+   // do something
+ }
+```
 
-face/vertex iterator
-```
-Give an example
-```
-
-### Add data to face/vertices
-
-add data
-```
-Give an example
-```
-### Changing properties
+### Adding Data to Mesh
 Properties can be added to mesh elements (faces,vertices, edges, halfedges) such as boolean,strings, standard c++ datatypes. This following examples adds a random floating number into each face of the mesh using iterators.
 ```
 OpenMesh::FPropHandleT<float> fprop_float;
@@ -80,9 +114,9 @@ The ODE solver uses the boost ODEint library. A simple example is below solving 
 ```
 //Declare Constants
 const double sigma = 1.1;
-const double beta = .4;
-const double delta = .1;
-const double phi = .4;
+const double beta = 0.4;
+const double delta = 0.1;
+const double phi = 0.4;
 typedef boost::array< double , 2 > state_type;
 
 //Setup Equation
